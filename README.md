@@ -1,4 +1,4 @@
-## Conchord-App
+## MVC with Vue
 
 ## Things you may want to cover:
 
@@ -48,7 +48,20 @@
   1. This'll have to be horizontal resource scaling, meaning having a small-scale computer-server on-site (or else we scale vertically with resources, i.e more computer-servers)
   2. Our alternative would be cloud-based hosting
 
-###### Model-view controller routing
+## In detail: ...
+
+1. Model-view Controller Routing: Configuration
+  - Add a Controller
+  - Add a View
+  -  Add a Model
+2. Work with a Database
+  - Controller Actions and Views: in correspondence
+    - Add a Search
+    - Add a New Field
+    - Add Validation
+3. Examine Details and Delete Methods
+
+###### _Model-view controller routing_
 
 ```Mermaid Model-view controller routing
 flowchart TD
@@ -59,19 +72,10 @@ flowchart TD
   C -->|Teardown current configuration of state| F[Test-driven aspect]
 ```
 
-###### Activity Report Class Diagram
+###### _Activity Report Class Diagram_
 
 ```Mermaid ActivityReport Class Diagram
 classDiagram
-  class Ship{
-    -ShipRepository shipRepository
-    
-    +Commander()
-    note "Other class members are present here, but are hidden for demonstration"
-    
-    +Ship(ShipRepository shipRepository) void
-  }
-
   note "No dependency injection for class variables"
   class ActivityReportModel{
     +Title() string
@@ -93,3 +97,37 @@ classDiagram
   ActivityReportController ..> ActivityReportModel
   note "...and is a dependency"
 ```
+
+###### _Division Commander Class Diagram_
+
+```Mermaid Division Commander Diagram
+classDiagram
+  class DivisionCommander{
+    -CommanderRepository commandRepository
+    +DivisionCommander()
+  }
+```
+
+###### _Division Staff Class Diagram_
+
+```Mermaid Division Staff Diagram
+classDiagram
+  class DivisionStaff{
+    -StaffRepository staffRepository
+    +DivisionStaff(List~DivisionStaff~ staff)
+  }
+```
+
+###### _Ship Class Diagram_
+
+```Mermaid Ship Class Diagram
+  class Ship{
+    -ShipRepository shipRepository
+    
+    +DivisionCommander()
+    note "Other class members are present here, but are hidden for demonstration"
+    
+    +Ship(ShipRepository shipRepository) void
+  }
+```
+

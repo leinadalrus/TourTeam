@@ -7,6 +7,8 @@ export default defineComponent({
 })
 </script>
 
-<template></template>
+<template>
+  <article></article>
+</template>
 
 <style scoped module="styles" lang="scss"></style>
