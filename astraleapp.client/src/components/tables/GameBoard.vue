@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { endDrag, dropOff } from "../cards/CardHandler.vue"
 import CombatMapInsets from "./CombatMapInsets.vue"
 </script>
 
