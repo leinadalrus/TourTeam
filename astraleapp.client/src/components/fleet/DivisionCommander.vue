@@ -2,9 +2,10 @@
 import { defineComponent } from "vue"
 
 type CommandInfo = {
-  company: string
-  division: string
-  lastName: string
+  uuid: number,
+  company: string,
+  division: string,
+  lastName: string,
   firstName: string
 }
 
@@ -32,7 +33,10 @@ export default defineComponent({
           this.post = embed as CommandInfo
         })
     }
-  }
+  },
+  watch: {
+    "$route" : "fetchData"
+  },
 })
 </script>
 

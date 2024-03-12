@@ -4,7 +4,20 @@ import SectGridmap from "./SectGridmap.vue"
 </script>
 
 <template>
-  <SectGridmap />
+  <section :class="styles.OptionsContainer" @dragend="endDrag" @drop="dropOff">
+    <SectGridmap />
+  </section>
 </template>
 
-<style scoped module="styles" lang="scss"></style>
+<style scoped module="styles" lang="scss">
+.OptionsContainer {
+  position: absolute;
+  bottom: 4rem;
+}
+
+.OptionsRow {
+  align-items: center;
+  flex-direction: row;
+}
+</style>
+
