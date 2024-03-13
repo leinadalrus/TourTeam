@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import SectGridmap from "./SectGridmap.vue"
+import dropOff from "CardHandler.vue"
+import endDrag from "CardHandler.vue"
 // "computed" are read-only values
 </script>
 
 <template>
-  <section :class="styles.OptionsContainer" @dragend="endDrag" @drop="dropOff">
+  <section :class="styles.OptionsContainer" ondragend="endDrag" ondrop="dropOff">
     <SectGridmap />
   </section>
 </template>
