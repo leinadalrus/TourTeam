@@ -1,19 +1,25 @@
 <script setup lang="ts">
-import CardBody from "./CardBody.vue";
-import { beginDrag } from "./CardHandler.vue"
-import type CardHeaderVue from "./CardHeader.vue";
+import CardBody from "./CardBody.vue"
+import beginDrag from "./CardHandler.vue"
+import CardHeader from "./CardHeader.vue"
+import { defineProps } from "vue"
+
+defineProps({
+  divisionCommander: String,
+  flagship: String
+})
 </script>
 
 <template>
-  <article :draggable="true" :class="styles.CardContainer" @dragstart="beginDrag">
-    <CardHeaderVue />
+  <article :draggable="true" :class="styles.CardContainer" ondragstart="beginDrag">
+    <CardHeader />
     <CardBody />
   </article>
 </template>
 
 <style scoped module="styles" lang="scss">
 .CardBanner {
-  text-orientation: sideways-right;
+  text-orientation: sideways;
   writing-mode: vertical-rl;
   word-break: break-word;
   max-height: 32vh;

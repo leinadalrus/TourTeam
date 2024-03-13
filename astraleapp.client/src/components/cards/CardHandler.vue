@@ -1,5 +1,5 @@
 <script lang="ts">
-export function beginDrag() {
+function beginDrag() {
   return (event:HTMLElement, data: any) => {
     event.classList.add("card")
 
@@ -9,7 +9,7 @@ export function beginDrag() {
   }
 }
 
-export function endDrag() {
+function endDrag() {
   return (data: any) => {
     data.dataTransfer.getData("application/json")
 
@@ -20,17 +20,24 @@ export function endDrag() {
   }
 }
 
-export function dropOff() {
+function dropOff() {
   ((event: HTMLElement) => {
     event.classList.remove("card")
   })
 }
 
-export function handleCard() {
+function handleCard() {
   ((card: EventTarget) => {
     card.addEventListener("ondragstart", beginDrag)
     card.addEventListener("ondragend", endDrag)
     card.addEventListener("ondrop", dropOff)
   })
+}
+
+export {
+  beginDrag,
+  endDrag,
+  dropOff,
+  handleCard
 }
 </script>

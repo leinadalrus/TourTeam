@@ -13,12 +13,11 @@ enum DeadOrAlives {
   Unknown = Dead | Alive
 }
 
-const Lancer = reactive({
-  lancerID: 0,
+const DivisionShip = reactive({
+  uuid: 0,
   company: "",
-  faction: "",
-  lastname: "",
-  firstname: "",
+  division: "",
+  name: "",
   alive: true
 }) // Fetch JSON data of Mercenary Pilots
 
@@ -38,43 +37,43 @@ function restfulRetrieval() {
   })
 }
 
-function validateLancerID() {
+function validateShipID() {
   computed(() => {
-    return Lancer.lancerID >= 0 ? true : false
+    return DivisionShip.uuid >= 0 ? true : false
   })
 }
 
-function lancerIsLiving() {
+function shipIsLiving() {
   computed(() => {
-    return Lancer.alive == true ? false : DeadOrAlives.Unknown
+    return DivisionShip.alive == true ? false : DeadOrAlives.Unknown
   })
 } // check DB schema validation for conditional rendering
 
 watch(
-  () => Lancer.lancerID,
-  lancerID => {
-    console.table(lancerID)
+  () => DivisionShip.uuid,
+  shipID => {
+    console.table(shipID)
   }
 ) // here we use a getter
 
 defineProps<{
-  lancer?: typeof Lancer
+  lancer?: typeof DivisionShip
 }>() // if using typescript pure-type annotations
 </script>
 
 <template>
-  <h1>{{ Lancer.lastname }}</h1>
-  <h2>{{ Lancer.firstname }}</h2>
+  <h1>{{ DivisionShip.name }}</h1>
+
+  <h2>{{ DivisionShip.division }}</h2>
   <img src="" alt="">
   <span>
-    {{ Lancer.company }}
-    {{ Lancer.faction }}
+    {{ DivisionShip.company }}
   </span>
-  <address>
-    {{ damageComparator }}
-    {{ lancerIsLiving }}
-    {{ validateLancerID }}
-  </address>
+  <ul>
+    <li>{{ damageComparator }}</li>
+    <li>{{ ShipIsLiving }}</li>
+    <li>{{ validateShipID }}</li>
+  </ul>
 </template>
 
 <style scoped module="styles" lang="scss"></style>

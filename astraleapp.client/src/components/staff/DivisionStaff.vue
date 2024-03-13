@@ -1,6 +1,6 @@
 <script lang="ts">
 import type DivisionCommander from "../fleet/DivisionCommander.vue"
-import { defineComponent } from 'vue'
+import { defineComponent, defineProps } from 'vue'
 
 type CommandInfo = {
   divisionCommander: typeof DivisionCommander
@@ -10,6 +10,12 @@ interface CommandData {
   bound: boolean
   post: CommandInfo | null
 }
+
+defineProps({
+  commander: String,
+  staff: String,
+  bound: Boolean
+})
 
 export default defineComponent({
   data(): CommandData {
