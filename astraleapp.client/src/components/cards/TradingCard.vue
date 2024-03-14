@@ -5,8 +5,7 @@ import CardHeader from "./CardHeader.vue"
 import { defineProps } from "vue"
 
 defineProps({
-  divisionCommander: String,
-  flagship: String
+  shipBoat: String
 })
 </script>
 

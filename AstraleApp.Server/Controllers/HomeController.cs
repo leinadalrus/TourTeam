@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AstraleApp.Server.Controllers
 {
-  public class HomeController : ControllerBase
+  public class HomeController : Controller
   {
     HomeController() { }
 

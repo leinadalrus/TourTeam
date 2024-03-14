@@ -7,9 +7,9 @@ function characterSheets(id: number): Array<typeof CharacterSheet> {
 }
 
 export default {
-  data() {
+  data(n: number) {
     return {
-      articles: characterSheets(1)
+      articles: characterSheets(n)
     }
   }
 }

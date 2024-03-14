@@ -13,8 +13,10 @@ import TradingCard from "./components/cards/TradingCard.vue"
         <!--
           TODO: `defineProps({})` method in: "TradingCard" must be in v-bind-
           -to be passed as dynamic value(s) 
+
+          a-la: ...
          -->
-        <TradingCard :flagship={members.divisionCommander.division} />
+          <TradingCard />
       </DivisionStaff>
     </div>
   </main>

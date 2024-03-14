@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AstraleApp.Server.Controllers
 {
-  public class ShipController : ControllerBase
+  public class ShipController : Controller
   {
     public ShipController() { }
     

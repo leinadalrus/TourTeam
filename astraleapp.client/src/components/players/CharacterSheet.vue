@@ -2,6 +2,7 @@
 import { ref } from "vue"
 // `import type` creates a file-module equivalent to Vue's `<script setup>`
 import { defineStore } from "pinia"
+import { defineComponent, watch } from "vue"
 
 const useCharacterSheetStore = defineStore("player", () => {})
 
@@ -13,14 +14,29 @@ function getID(characterID: number): number {
   id.value = characterID
   return id.value
 }
+
 function getName(characterName: string): string {
   name.value = characterName
   return name.value
 }
+
 function getImage(imageFilepath: string): string {
   image.value = imageFilepath
   return image.value
 }
+
+// TODO: watch URI resources/assets for changes
+watch(id, nextID => {
+  console.log(nextID)
+})
+
+watch(name, nextName => {
+  console.log(nextName)
+})
+
+watch(image, nextImage => {
+  console.log(nextImage)
+})
 </script>
 
 <template>

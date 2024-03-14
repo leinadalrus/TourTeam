@@ -13,7 +13,7 @@
       <input type="image" src="" alt="">
 
       <div>
-        <input type="submit" value="">
+        <input type="submit" value="Submit">
       </div>
     </form>
   </section>
@@ -22,6 +22,6 @@
 <style scoped module="styles" lang="scss">
 .CharacterEditorForm {
   margin: auto;
-  padding: auto;
+  padding: 1rem;
 }
 </style>

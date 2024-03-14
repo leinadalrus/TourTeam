@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AstraleApp.Server.Controllers
 {
-  public class CommanderController : ControllerBase
+  public class CommanderController : Controller
   {
     public CommanderController() { }
 

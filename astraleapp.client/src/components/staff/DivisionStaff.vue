@@ -30,8 +30,8 @@ export default defineComponent({
       this.post = null
 
       fetch("commander")
-        .then((reader) => reader.json())
-        .then((embed) => {
+        .then(reader => reader.json())
+        .then(embed => {
           this.bound = false
           this.post = embed as CommandInfo
         })
