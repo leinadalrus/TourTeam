@@ -4,13 +4,23 @@
   <section :class="styles.CharacterEditorForm">
     <form action="" method="post">
       <label for="">Input Character Name:</label>
-      <input type="text">
+      <input type="text" name="company" placeholder="Company?" />
 
-      <label for="">Class Type(s):</label>
-      <input type="checkbox" name="" id="">
+      <label for="division">Company</label>
+      <input type="text" name="division" placeholder="Division?" />
+
+      <label for="division">Division</label>
+      <input type="text" />
+
+      <label for="specials-select">Select your Specialisation</label>
+      <select id="specials-select">
+        <optgroup label="Specialisation">
+          <option>Gunnery</option>
+        </optgroup>
+      </select>
 
       <label for="">Avatar/Profile Picture:</label>
-      <input type="image" src="" alt="">
+      <input type="image" src="" alt="" name="avatar" />
 
       <div>
         <input type="submit" value="Submit">

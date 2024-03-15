@@ -11,7 +11,6 @@ defineProps({
 
 <template>
   <article :draggable="true" :class="styles.CardContainer" ondragstart="beginDrag">
-    <CardHeader />
     <CardBody />
   </article>
 </template>

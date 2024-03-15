@@ -9,6 +9,7 @@ namespace AstraleApp.Server.Controllers
     [HttpGet(Name = "GetIndex")]
     public string GetIndex()
     {
+      // get "index.html" template resource
       return "index";
     }
   }

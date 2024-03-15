@@ -2,66 +2,66 @@
 {
   public class Ship
   {
-    private Commander DivisionCommander
+    public Commander DivisionCommander
     {
       get; set;
     }
 
-    private List<string> capabilities
+    public List<string> capabilities
     {
       get; set;
     }
 
-    private String training
+    public String training
     {
       get; set;
     }
 
-    private Dictionary<string, int> speed
+    public Dictionary<string, int> speed
     {
       get; set;
     }
 
-    private Dictionary<string, int> endurance
+    public Dictionary<string, int> endurance
     {
       get; set;
     }
 
-    private Dictionary<int, int> dimensions
+    public Dictionary<int, int> dimensions
     {
       get; set;
     }
 
-    private String propulsion
+    public String propulsion
     {
       get; set;
     }
 
-    private List<string> navigation
+    public List<string> navigation
     {
       get; set;
     }
 
-    private String communications
+    public String communications
     {
       get; set;
     }
 
-    private String weapons
+    public String weapons
     {
       get; set;
     }
 
-    private String accommodation
+    public String accommodation
     {
       get; set;
     }
 
-    private String lifeSavingEquipment
+    public String lifeSavingEquipment
     {
       get; set;
     }
-    private String shipsBoat
+    public String shipsBoat
     {
       get; set;
     }

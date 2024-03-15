@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AstraleApp.Server.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AstraleApp.Server.Controllers
 {
@@ -10,6 +11,21 @@ namespace AstraleApp.Server.Controllers
     public string GetStaff()
     {
       return "staff";
+    }
+
+    [HttpPut(Name = "UpdateStaff")]
+    public void UpdateStaff()
+    {
+    }
+
+    [HttpPost(Name = "EditStaff")]
+    public void EditStaff(Staff staff)
+    {
+    }
+
+    [HttpDelete]
+    public void DestroyStaff()
+    {
     }
   }
 }
