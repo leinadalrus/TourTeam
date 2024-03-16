@@ -15,7 +15,12 @@
       <label for="specials-select">Select your Specialisation</label>
       <select id="specials-select">
         <optgroup label="Specialisation">
-          <option>Gunnery</option>
+          <option>Weapons</option>
+          <option>Medical</option>
+          <option>Equipment</option>
+          <option>Navigation</option>
+          <option>Communications</option>
+          <option>Patrol Boat</option>
         </optgroup>
       </select>
 

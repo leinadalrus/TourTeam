@@ -16,7 +16,8 @@ import TradingCard from "./components/cards/TradingCard.vue"
 
           a-la: ...
          -->
-          <TradingCard />
+          <TradingCard title="I-400-class" description="Imperial Japanese Navy unique, and novel - special operations Submarine" vessel="Submarine Carrier" />
+        <span>{{ members }}</span>
       </DivisionStaff>
     </div>
   </main>

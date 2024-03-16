@@ -4,15 +4,23 @@ import beginDrag from "./CardHandler.vue"
 import CardHeader from "./CardHeader.vue"
 import { defineProps } from "vue"
 
-defineProps({
-  shipBoat: String
-})
+defineProps<{
+  title: string,
+  description: string,
+  vessel: string
+}>()
 </script>
 
 <template>
-  <article :draggable="true" :class="styles.CardContainer" ondragstart="beginDrag">
+  <section :draggable="true" :class="styles.CardLayer" ondragstart="beginDrag">
+    <div :class="styles.CardBanner">
+      <p>{{ title }}</p>
+    </div>
+    <article :class="styles.CardContainer">
+      <i>{{ description }}</i>
+    </article>
     <CardBody />
-  </article>
+  </section>
 </template>
 
 <style scoped module="styles" lang="scss">
