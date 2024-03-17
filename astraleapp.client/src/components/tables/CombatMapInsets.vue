@@ -5,10 +5,8 @@ import endDrag from "CardHandler.vue"
 // "computed" are read-only values
 </script>
 
-<template>
-  <section :class="styles.OptionsContainer" ondragend="endDrag" ondrop="dropOff">
-    <SectGridmap />
-  </section>
+<template :class="styles.OptionsContainer" ondragend="endDrag" ondrop="dropOff">
+  <SectGridmap />
 </template>
 
 <style scoped module="styles" lang="scss">

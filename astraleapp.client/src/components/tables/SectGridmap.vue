@@ -1,7 +1,18 @@
 <script setup lang="ts">
+import { ref, watch } from "vue"
+
+const tilemap2D = ref([0, [0]])
+
+watch(tilemap2D, vectors => {
+  try {
+    console.table(vectors)
+  } catch (error: any) {
+    console.log(error)
+  }
+})
 </script>
 
-<template>
+<template ref="tilemap2D">
   <article :class="styles.GridmapContainer"></article>
 </template>
 

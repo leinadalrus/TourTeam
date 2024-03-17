@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import CardBody from "./CardBody.vue"
-import beginDrag from "./CardHandler.vue"
-import CardHeader from "./CardHeader.vue"
-import { defineProps } from "vue"
+import { ref } from "vue"
 
-defineProps<{
-  title: string,
-  description: string,
-  vessel: string
-}>()
+const uuid = ref(0)
+const title = ref("")
+const description = ref("")
 </script>
 
 <template>
@@ -20,6 +16,11 @@ defineProps<{
       <i>{{ description }}</i>
     </article>
     <CardBody />
+    <span>
+      <small>
+        <i>{{ uuid }}</i>
+      </small>
+    </span>
   </section>
 </template>
 
@@ -45,12 +46,14 @@ defineProps<{
 }
 
 .CardLayer {
-  clip-path: polygon(0 0%,
-      100% 0,
-      100% calc(100% - 0rem),
-      calc(100% - 0rem) 100%,
-      0 100%,
-      0% calc(100% - 0rem));
+  clip-path: polygon(
+    0 0%,
+    100% 0,
+    100% calc(100% - 0rem),
+    calc(100% - 0rem) 100%,
+    0 100%,
+    0% calc(100% - 0rem)
+  );
 
   max-width: 15vw;
   max-height: 32vh;
