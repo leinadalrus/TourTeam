@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import CardBody from "./CardBody.vue"
-import { ref } from "vue"
+import beginDrag from "./CardHandler.vue"
+import { ref, watch } from "vue"
 
 const uuid = ref(0)
 const title = ref("")
 const description = ref("")
+
+watch([uuid, title, description], (embedded) => {
+  console.log(embedded)
+})
 </script>
 
 <template>

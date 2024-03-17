@@ -2,31 +2,26 @@
 </script>
 
 <template>
-<div className={styles.FrostedBanner}>
-  <div className={styles.NavBackground}></div>
-  <nav className={styles.Navbar}>
-
-    <a className={styles.Overwatch}>
-      <button>Home Base</button>
+<div :class="styles.FrostedBanner">
+  <div :class="styles.NavBackground"></div>
+  <nav :class="styles.Navbar">
+    <a :class="styles.Overwatch">
+      Home
+    </a>
+    <a :class="styles.Sortie">
+      Sortie
+    </a>
+    <a :class="styles.Assembly">
+      Garage
+    </a>
+    <a :class="styles.Mission">
+      Mission
     </a>
 
-    <a className={styles.Sortie}>
-      <button>Mission Sortie</button>
-    </a>
-
-    <a className={styles.Assembly}>
-      <button>My Garage</button>
-    </a>
-
-    <a className={styles.Mission}>
-      <button>NEST: Branch</button>
-    </a>
-
-    <div className={styles.Line1}></div>
-    <div className={styles.Line2}></div>
-    <div className={styles.Line3}></div>
-    <div className={styles.Line4}></div>
-
+    <div :class="styles.Line1"></div>
+    <div :class="styles.Line2"></div>
+    <div :class="styles.Line3"></div>
+    <div :class="styles.Line4"></div>
   </nav>
 </div>
 </template>
@@ -48,7 +43,7 @@
 .NavBackground {
   width: 1350px;
   height: 75px;
-  top: 2.762rem;
+  top: calc(100% / 10);
   left: calc(100% / 30);
 
   backdrop-filter: blur(5.75256333rem);
@@ -67,30 +62,30 @@
   font-family: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-}
 
-.Navbar button {
-  float: none;
-  border: none;
-  outline: none;
-  color: #faf9fa;
-
-  display: inline;
-  position: relative;
-  text-decoration: none;
-  text-align: center;
-  align-items: center;
-
-  transition: 1s;
-  padding: 0.8rem;
-  margin: 0.4rem;
-
-  left: calc(100% / 3);
-  top: 0.25rem;
-
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px none rgba(var(--callout-border-rgb), 0.3);
-  border-radius: var(--border-radius);
+  button {
+    float: none;
+    border: none;
+    outline: none;
+    color: #faf9fa;
+  
+    display: inline;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+  
+    transition: 1s;
+    padding: 0.8rem;
+    margin: 0.4rem;
+  
+    left: calc(100% / 3);
+    top: 0.25rem;
+  
+    background-color: rgba(var(--callout-rgb), 0.5);
+    border: 1px none rgba(var(--callout-border-rgb), 0.3);
+    border-radius: var(--border-radius);
+  }
 }
 
 .Overwatch {

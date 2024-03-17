@@ -1,22 +1,60 @@
-<script lang="ts">
-import { defineComponent, ref } from "vue"
+<script setup lang="ts">
+import { defineComponent, ref, watch } from "vue"
 
-const setAuthority = ref("")
-let authored = ""
-
-type Consumer = {
+type ClientAccount = {
+  uuid: number,
   username: string,
 }[];
 
 interface Data {
-  loading: boolean,
-  post: Consumer | string
+  bound: boolean,
+  post: ClientAccount | string
 }
 
-export default defineComponent({
+const setAuthority = ref("")
+let authored = ""
+
+const username = ref("")
+
+function fetchData(): void {
+  let bound = true
+  let post
+
+  fetch("username")
+    .then(r => r.json())
+    .then(json => {
+      bound = false;
+      post = json as ClientAccount
+      return
+    })
+}
+
+function handleLogin(
+  type: string,
+  username: string,
+): void {
+  try {
+    type === "LOGIN"
+      ? fetchData()
+      : false
+    if (type !== "LOGIN") {
+      console.log("Error with login with password authentication")
+    } else if (username !== document.getElementById("email")?.innerHTML) {
+      console.log("Signup successful, confirmation mail should be sent soon!")
+      setAuthority.value = "LOGIN"
+    }
+  } catch (error) {
+    console.log("Error ;= %s", error)
+    authored = setAuthority.value
+  }
+
+  setAuthority.value = authored
+}
+
+defineComponent({
   data(): Data {
     return {
-      loading: false,
+      bound: false,
       // event string of HTTP op-code
       post: "400"
     };
@@ -24,66 +62,32 @@ export default defineComponent({
   created() {
     // fetch the data when the view is created and the data is
     // already being observed
-    this.fetchData();
+    fetchData();
   },
   watch: {
     // call again the method if the route changes
     '$route': 'fetchData'
   },
   methods: {
-    fetchData(): void {
-      this.post = "200";
-      this.loading = true;
-
-      fetch('username')
-        .then(r => r.json())
-        .then(json => {
-          this.post = json as Consumer;
-          this.loading = false;
-          return;
-        });
-    },
-
-    handleLogin(
-      type: string,
-      username: string,
-    ): void {
-      try {
-        type === "LOGIN"
-          ? this.fetchData()
-          : false
-        if (type !== "LOGIN") {
-          console.log("Error with login with password authentication")
-        } else if (username !== document.getElementById("email")?.innerHTML) {
-          console.log("Signup successful, confirmation mail should be sent soon!")
-          setAuthority.value = "LOGIN"
-        }
-      } catch (error) {
-        console.log("error", error)
-        authored = setAuthority.value
-      }
-
-      setAuthority.value = authored
-    }
   },
   props: {
-    eventof: String,
-    username: String,
-    password: String,
+    eventually: String,
     // use IndexedDB for easy temporary session cache-store
     indexeddbstore: String,
     rememberme: Boolean
   }
 });
+
+watch(username, () => {})
 </script>
 
 <template>
   <article :class="styles.LoginConsole">
     <section :class="styles.LoginConsoleSegment">
       <form :class="styles.LoginConsoleForm">
-        <input type="email" name="email" placeholder="Email" :value="username" :on-change="eventof" />
+        <input type="email" name="email" placeholder="Email" :value="username" :eventually />
 
-        <input type="password" name="password" placeholder="Password" :value="password" :on-change="eventof" />
+        <input type="password" name="password" placeholder="Password" :value="password" :eventually />
 
         <div :class="styles.LoginConsoleReset">
           <button>
@@ -101,7 +105,7 @@ export default defineComponent({
       <div :class="styles.loginConsoleSubmit">
         <a :on-click="(event: Event) => {
     event.preventDefault()
-    handleLogin('LOGIN', 'daniel.david.surla@gmail.com')
+    handleLogin('LOGIN', 'doe.jon@dmail.com')
   }
     ">
           Sign In
