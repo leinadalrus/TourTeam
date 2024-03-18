@@ -7,9 +7,7 @@ watch(avatarURL, () => {})
 </script>
 
 <template>
-  <article>
-    <img :src="avatarURL" alt="A Custom Profile Image" aria-label="Custom Profile Image" />
-  </article>
+  <img :src="avatarURL" alt="A Custom Profile Image" aria-label="Custom Profile Image" />
 </template>
 
 <style scoped module="styles" lang="scss"></style>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, defineComponent, defineEmits, ref, watch } from "vue"
-import CharacterSheet from "CharacterSheet.vue"
-import CustomAvatar from "CustomAvatar.vue"
+import CharacterSheet from "./CharacterSheet.vue"
+import CustomAvatar from "./CustomAvatar.vue"
 
 const characterArticles = ref(0)
 

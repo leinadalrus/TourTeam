@@ -1,31 +1,15 @@
 <script setup lang="ts">
+import CardHeader from "./CardHeader.vue"
 import CardBody from "./CardBody.vue"
 import beginDrag from "./CardHandler.vue"
-import { ref, watch } from "vue"
-
-const uuid = ref(0)
-const title = ref("")
-const description = ref("")
-
-watch([uuid, title, description], (embedded) => {
-  console.log(embedded)
-})
 </script>
 
 <template>
   <section :draggable="true" :class="styles.CardLayer" ondragstart="beginDrag">
-    <div :class="styles.CardBanner">
-      <p>{{ title }}</p>
+    <div :class="styles.CardContainer">
+      <CardHeader />
+      <CardBody />
     </div>
-    <article :class="styles.CardContainer">
-      <i>{{ description }}</i>
-    </article>
-    <CardBody />
-    <span>
-      <small>
-        <i>{{ uuid }}</i>
-      </small>
-    </span>
   </section>
 </template>
 
