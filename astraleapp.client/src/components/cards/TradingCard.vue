@@ -61,7 +61,5 @@ import beginDrag from "./CardHandler.vue"
     -1rem 1rem 4.912423rem rgba(9, 2, 6, 0.1);
   cursor: pointer;
   color: #f7f9fe;
-
-  right: 17.5rem;
 }
 </style>

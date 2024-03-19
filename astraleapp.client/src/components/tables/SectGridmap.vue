@@ -13,7 +13,10 @@ watch(tilemap2D, (vectors) => {
 </script>
 
 <template ref="tilemap2D">
-  <article :class="styles.GridmapContainer"></article>
+  <article :class="styles.GridmapContainer">
+    <!-- Trading Card SFC as a Slot, here: ...-->
+   <slot></slot>
+  </article>
 </template>
 
 <style scoped module="styles" lang="scss">

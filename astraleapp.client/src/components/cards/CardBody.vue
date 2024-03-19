@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {
   computed,
+  defineComponent,
   defineEmits,
   defineProps,
   reactive,
@@ -14,8 +15,18 @@ enum DeadOrAlives {
   Unknown = Dead | Alive
 }
 
-const DivisionShip = reactive({
-}) // Fetch JSON data of Mercenary Pilots
+class DivisionShip {
+  public capability?: string
+  public speed?: number
+  public endurance?: number
+  public dimensions?: number
+  public propulsion?: string
+  public communications?: string
+  public weapons?: string
+  public accomodation?: string
+  public equipment?: string
+  public vessels?: string
+}
 
 const damageComparator = defineEmits({
   submit: ({ attack, defence }) => {
@@ -59,6 +70,36 @@ function shipIsLiving() {
   })
 } // check DB schema validation for conditional rendering
 
+defineProps<{
+  vessel?: DivisionShip
+}>() // if using typescript pure-type annotations
+
+defineComponent({
+  data() { 
+    return {
+      bound: true,
+      vessels: [] as DivisionShip[],
+      headers: [
+        { param: "Vessel", query: "I-400"}
+      ]
+    }
+  },
+  methods: {
+    fetchData(): void {
+      this.bound = true
+
+      fetch("vessel")
+        .then(reader => reader.json())
+        .then(embed => {
+          this.bound = false
+        })
+    }
+  },
+  watch: {
+    "$route": "fetchData"
+  }
+})
+
 watch([title, flavour, description], (embedded) => {
   console.log(embedded)
 })
@@ -72,20 +113,16 @@ watch(
     }
   }
 ) // here we use a getter
-
-defineProps<{
-  lancer?: typeof DivisionShip
-}>() // if using typescript pure-type annotations
 </script>
 
 <template>
   <h1>{{ vessel.name }}</h1>
   <h2>{{ vessel.division }}</h2>
   <h6>{{ vessel.company }}</h6>
-  <div :class="styles.CardBanner">
+  <div>
     <h1>{{ title }}</h1>
   </div>
-  <article :class="styles.CardContainer">
+  <article>
     <i>{{ flavour }}</i>
     <p>{{ description }}</p>
   </article>
@@ -97,56 +134,4 @@ defineProps<{
   <i>{{ vessel.uuid }}</i>
 </template>
 
-<style scoped module="styles" lang="scss">
-.CardBanner {
-  text-orientation: sideways;
-  writing-mode: vertical-rl;
-  word-break: break-word;
-  max-height: 32vh;
-}
-
-.CardContainer {
-  display: flex;
-  overflow: scroll;
-
-  flex: 1;
-  background-color: #0f1014;
-  align-items: center;
-  justify-content: center;
-
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.CardLayer {
-  clip-path: polygon(
-    0 0%,
-    100% 0,
-    100% calc(100% - 0rem),
-    calc(100% - 0rem) 100%,
-    0 100%,
-    0% calc(100% - 0rem)
-  );
-
-  max-width: 15vw;
-  max-height: 32vh;
-
-  padding: 0.25rem 1rem;
-  margin: auto;
-
-  opacity: 99%;
-
-  backdrop-filter: blur(5.75256333rem);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%234065b0' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-  background-color: #000614;
-
-  border: none;
-  box-shadow: 1rem 1rem 4.912423rem rgba(3, 2, 3, 0.1),
-    -1rem 1rem 4.912423rem rgba(9, 2, 6, 0.1);
-  cursor: pointer;
-  color: #f7f9fe;
-
-  right: 17.5rem;
-}
-</style>
-
+<style scoped module="styles" lang="scss"></style>
