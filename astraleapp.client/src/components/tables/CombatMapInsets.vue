@@ -1,23 +1,32 @@
 <script setup lang="ts">
-import SectGridmap from "./SectGridmap.vue"
+import { ref, watch } from "vue"
 import dropOff from "CardHandler.vue"
 import endDrag from "CardHandler.vue"
 // "computed" are read-only values
+
+const tilemap2D = ref([0, [0]])
+
+watch(tilemap2D, (vectors) => {
+  try {
+    console.table(vectors)
+  } catch (error: any) {
+    console.log(error)
+  }
+})
 </script>
 
 <template :class="styles.OptionsContainer" ondragend="endDrag" ondrop="dropOff">
-  <SectGridmap />
+  <slot></slot>
 </template>
 
 <style scoped module="styles" lang="scss">
 .OptionsContainer {
-  position: absolute;
-  bottom: 4rem;
-}
+  position: relative;
+  display: grid;
 
-.OptionsRow {
-  align-items: center;
-  flex-direction: row;
+  gap: 1em;
+  grid-template-rows: repeat(8, 4em);
+  grid-template-columns: repeat(8, 4em);
 }
 </style>
 

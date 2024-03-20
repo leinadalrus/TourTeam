@@ -14,8 +14,9 @@ namespace AstraleApp.Server.Models
       this.traits = traitInstance;
     }
 
-    public Character()
+    public Character(int id)
     {
+      this.id = id;
     }
 
     public int GetId()

@@ -8,15 +8,11 @@ import TradingCard from "./components/cards/TradingCard.vue"
   <header>
     <NavMenu />
   </header>
-  <main :class="styles.MainContainer">
-    <CombatMapInsets />
-    <TradingCard />
+  <main>
+    <CombatMapInsets>
+      <TradingCard />
+    </CombatMapInsets>
   </main>
 </template>
 
-<style scoped module="styles" lang="scss">
-.MainContainer {
-  margin: auto;
-  padding: 1rem;
-}
-</style>
+<style scoped module="styles" lang="scss"></style>

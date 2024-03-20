@@ -51,13 +51,6 @@ const title = ref("")
 const flavour = ref("")
 const description = ref("")
 
-function restfulRetrieval() {
-  const response = fetch("api/cards")
-  response.then(message => {
-    return JSON.parse(message.json.toString())
-  })
-}
-
 function validateShipID() {
   computed(() => {
     return vessel.uuid >= 0 ? true : false

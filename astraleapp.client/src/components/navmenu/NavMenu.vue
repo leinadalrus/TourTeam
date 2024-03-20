@@ -63,6 +63,11 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
+  a {
+    left: calc(100% / 2.5);
+    right: calc(100% / 2.5);
+  }
+
   button {
     float: none;
     border: none;
@@ -79,7 +84,6 @@
     padding: 0.8rem;
     margin: 0.4rem;
   
-    left: calc(100% / 3);
     top: 0.25rem;
   
     background-color: rgba(var(--callout-rgb), 0.5);
