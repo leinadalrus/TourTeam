@@ -5,7 +5,7 @@ import beginDrag from "./CardHandler.vue"
 </script>
 
 <template>
-  <section :draggable="true" :class="styles.CardContainer" ondragstart="beginDrag">
+  <section :class="styles.CardContainer" draggable="true">
     <div :class="styles.CardLayer">
       <CardHeader />
       <CardBody />
@@ -14,10 +14,6 @@ import beginDrag from "./CardHandler.vue"
 </template>
 
 <style scoped module="styles" lang="scss">
-[draggable=true] {
-  cursor: move;
-}
-
 .CardBanner {
   text-orientation: sideways;
   writing-mode: vertical-rl;
@@ -30,9 +26,9 @@ import beginDrag from "./CardHandler.vue"
   grid-template-rows: max-content calc(100%) calc(100%);
   overflow: scroll;
   resize: both;
+
   max-width: 127px;
   max-height: 254px;
-  
   min-width: 63px;
   min-height: 127px;
 
@@ -45,6 +41,7 @@ import beginDrag from "./CardHandler.vue"
   align-items: center;
   justify-content: center;
 
+  cursor: move;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
