@@ -1,93 +1,105 @@
 <script setup lang="ts">
 import { defineComponent, ref, watch } from "vue"
 
-type ClientAccount = {
-  uuid: number,
-  username: string,
-}[];
+type CustomerAccount = {
+  uuid: number
+  username: string
+}[]
 
-interface Data {
-  bound: boolean,
-  post: ClientAccount | string
+interface LoginData {
+  bound: boolean
+  post: CustomerAccount | string
 }
 
 const setAuthority = ref("")
 let authored = ""
 
-const username = ref("")
-
-function fetchData(): void {
+function fetchLoginData(): void {
   let bound = true
   let post
 
   fetch("username")
-    .then(r => r.json())
-    .then(json => {
-      bound = false;
-      post = json as ClientAccount
+    .then((r) => r.json())
+    .then((json) => {
+      bound = false
+      post = json as CustomerAccount
       return
     })
 }
 
-function handleLogin(
-  type: string,
-  username: string,
-): void {
+function handleLogin(type: string, username: string): LoginData | undefined {
   try {
-    type === "LOGIN"
-      ? fetchData()
-      : false
+    type === "LOGIN" ? fetchLoginData() : false
     if (type !== "LOGIN") {
-      console.log("Error with login with password authentication")
+      return {
+        bound: false,
+        post: "400"
+      }
     } else if (username !== document.getElementById("email")?.innerHTML) {
-      console.log("Signup successful, confirmation mail should be sent soon!")
       setAuthority.value = "LOGIN"
+      return {
+        bound: true,
+        post: "200"
+      }
     }
   } catch (error) {
     console.log("Error ;= %s", error)
     authored = setAuthority.value
+    return {
+      bound: false,
+      post: "400"
+    }
   }
 
   setAuthority.value = authored
 }
 
 defineComponent({
-  data(): Data {
+  data(): LoginData {
     return {
       bound: false,
       // event string of HTTP op-code
       post: "400"
-    };
+    }
   },
   created() {
     // fetch the data when the view is created and the data is
     // already being observed
-    fetchData();
+    fetchLoginData()
   },
   watch: {
     // call again the method if the route changes
-    '$route': 'fetchData'
+    $route: "fetchLoginData"
   },
-  methods: {
-  },
+  methods: {},
   props: {
     eventually: String,
     // use IndexedDB for easy temporary session cache-store
     indexeddbstore: String,
     rememberme: Boolean
   }
-});
-
-watch(username, () => {})
+})
 </script>
 
 <template>
   <article :class="styles.LoginConsole">
     <section :class="styles.LoginConsoleSegment">
       <form :class="styles.LoginConsoleForm">
-        <input type="email" name="email" placeholder="Email" :value="username" :eventually />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          :value="username"
+          :eventually
+        />
 
-        <input type="password" name="password" placeholder="Password" :value="password" :eventually />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          :value="password"
+          :eventually
+        />
 
         <div :class="styles.LoginConsoleReset">
           <button>
@@ -103,11 +115,12 @@ watch(username, () => {})
       </form>
 
       <div :class="styles.loginConsoleSubmit">
-        <a :on-click="(event: Event) => {
-    event.preventDefault()
-    handleLogin('LOGIN', 'doe.jon@dmail.com')
-  }
-    ">
+        <a
+          :on-click="(event: Event) => {
+            event.preventDefault()
+            handleLogin('LOGIN', 'doe.jon@dmail.com')
+          }"
+        >
           Sign In
         </a>
       </div>
@@ -125,12 +138,14 @@ watch(username, () => {})
   padding: 1.712rem 2.256rem;
   margin: auto;
 
-  clip-path: polygon(0 0%,
-      100% 0,
-      100% calc(100% - 0rem),
-      calc(100% - 0rem) 100%,
-      0 100%,
-      0% calc(100% - 0rem));
+  clip-path: polygon(
+    0 0%,
+    100% 0,
+    100% calc(100% - 0rem),
+    calc(100% - 0rem) 100%,
+    0 100%,
+    0% calc(100% - 0rem)
+  );
 
   opacity: 99%;
   border-radius: 2.512333rem;
@@ -140,8 +155,7 @@ watch(username, () => {})
   background-color: #000614;
 
   border: none;
-  box-shadow:
-    1rem 1rem 4.912423rem rgba(3, 2, 3, 0.1),
+  box-shadow: 1rem 1rem 4.912423rem rgba(3, 2, 3, 0.1),
     -1rem 1rem 4.912423rem rgba(9, 2, 6, 0.1);
 }
 
@@ -160,9 +174,7 @@ watch(username, () => {})
   backdrop-filter: blur(2.5rem);
   border: none;
 
-  box-shadow:
-    1rem 1rem 5rem #121118,
-    -1rem 1rem 5rem #191624;
+  box-shadow: 1rem 1rem 5rem #121118, -1rem 1rem 5rem #191624;
   content: "";
 
   opacity: 50%;
@@ -187,9 +199,7 @@ watch(username, () => {})
   backdrop-filter: blur(2.5rem);
   border: none;
 
-  box-shadow:
-    1rem 1rem 1rem #ecf1f2,
-    -1rem 1rem 1rem #f7f9fe;
+  box-shadow: 1rem 1rem 1rem #ecf1f2, -1rem 1rem 1rem #f7f9fe;
   content: "";
 
   opacity: 50%;
@@ -224,12 +234,14 @@ watch(username, () => {})
 }
 
 .LoginConsoleSegment {
-  clip-path: polygon(2rem 0%,
-      100% 0,
-      100% calc(100% - 2rem),
-      calc(100% - 2rem) 100%,
-      0 100%,
-      0% 2rem);
+  clip-path: polygon(
+    2rem 0%,
+    100% 0,
+    100% calc(100% - 2rem),
+    calc(100% - 2rem) 100%,
+    0 100%,
+    0% 2rem
+  );
 
   width: 15.704rem;
   position: relative;

@@ -1,16 +1,23 @@
 <script setup lang="ts">
-import CardHeader from "./CardHeader.vue"
-import CardBody from "./CardBody.vue"
 import beginDrag from "./CardHandler.vue"
+// card handling function(s)
+import CardHeader from "./CardHeader.vue"
+// card meta-data and digital-media
+import CardBody from "./CardBody.vue" // card properties
 </script>
 
-<template>
-  <section :class="styles.CardContainer" draggable="true">
-    <div :class="styles.CardLayer">
-      <CardHeader />
-      <CardBody />
-    </div>
-  </section>
+<template
+  class="styles.CardContainer"
+  v-for="card in areas"
+  :key="card.id"
+  draggable
+  @dragstart="beginDrag($event, card)"
+>
+  <div :class="styles.CardLayer">
+    <CardHeader />
+    <CardBody />
+  </div>
+  {{ card.id }}
 </template>
 
 <style scoped module="styles" lang="scss">
