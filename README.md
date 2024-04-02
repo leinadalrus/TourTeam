@@ -231,3 +231,52 @@ Then we should have an HTML article which works hand-in-hand from TypeScript to 
 #### Housekeeping: Login Console (SFC)
 ###### Database Configuration and Interfacing: with an ORM (a-la LINQ)
 
+
+``` C# Islands.cs
+public int MaxAreaOfIsland(int[][] grid)
+{
+  int m = grid.Length,
+      n = grid[0].Length;
+  // outside values which should be in a `Queue<int>()` value;
+
+  if (1 <= m && n <= m)
+      return n;
+  
+  return m;
+}
+
+private int _breadthFirstSearch(int[][] grid)
+{
+  Chord chord = new Chord();
+  chord._predecessor = new Chord();
+  chord._distance = chord._predecessor;
+      
+  bool[] hasVisited = new bool[chord._edge];
+
+  while (!hasVisited[chord._edge])
+  {
+      for (int i = 0; i < grid.Length; ++i)
+      {
+          for (int j = 0; j < grid[0].Length; ++j)
+          {
+              hasVisited[j] = true;
+              chord._edge = j;
+
+              return _breadthFirstSearch(grid);
+          }
+      }
+  }
+
+  return _breadthFirstSearch(grid);
+}
+```
+
+``` C# Chord.cs
+class Chord
+{
+  Chord() {}
+  Chord _predecessor;
+  Chord _distance;
+  int _edge;
+}
+```

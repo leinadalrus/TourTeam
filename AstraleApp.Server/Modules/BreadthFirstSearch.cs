@@ -2,30 +2,44 @@
 {
   class BreadthFirstSearch
   {
-    Chord _chord;
+    private Chord _chord;
 
-    BreadthFirstSearch(Chord chord, int[][] graph)
+    public BreadthFirstSearch(Chord chord)
     {
       _chord = chord;
-      _chord.Predecessor = new Chord();
-      _chord.Successor = _chord.Predecessor;
+    }
 
-      Queue<int> queue = new Queue<int>();
-      bool[] hasVisited = new bool[_chord.Vertex];
+    private int _maxAreaofIsland(int[][] graph)
+    {
+      int m = graph.Length,
+          n = graph[0].Length;
+      // outside values which should be in a `Queue<int>()` value;
 
-      while (!hasVisited[_chord.Vertex])
+      if (1 <= m && n <= m)
+          return n;
+  
+      return m;
+    }
+
+    private int _breadthFirstSearch(int[][] graph)
+    {
+      this._chord.Predecessor = new Chord();
+      this._chord.Distance = this._chord.Predecessor;
+          
+      bool[] hasVisited = new bool[this._chord.Predecessor.Edge];
+    
+      while (!hasVisited[this._chord.Predecessor.Edge])
       {
-        foreach (int vertex in graph[_chord.Vertex])
+        foreach (int i in graph[this._chord.Distance.Edge])
         {
-          queue.Enqueue(vertex);
-
-          if (!hasVisited[vertex])
-          {
-            queue.Enqueue(vertex);
-            hasVisited[vertex] = true;
-          }
+          hasVisited[i] = true;
+          this._chord.Edge = i;
+    
+          return _breadthFirstSearch(graph);
         }
       }
+    
+      return _breadthFirstSearch(graph);
     }
   }
 
@@ -34,14 +48,7 @@
     public Chord() {}
 
     public Chord? Predecessor = null;
-    public Chord? Successor = null; // minimum number of edges for vertices
-    public int Vertex = 0;
+    public Chord? Distance = null; // minimum number of edges for vertices
+    public int Edge = 0;
   }
 }
-//
-// Constraints:
-// m == grid.length
-// n == grid[i].length
-// 1 <= m, n <= 50
-// grid[i][j] is either 0 or 1.
-//
