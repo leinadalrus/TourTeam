@@ -21,25 +21,28 @@
       return m;
     }
 
-    private int _breadthFirstSearch(int[][] graph)
+    private int _breadthFirstSearch(int[][] graph, int id)
     {
       this._chord.Predecessor = new Chord();
       this._chord.Distance = this._chord.Predecessor;
-          
-      bool[] hasVisited = new bool[this._chord.Predecessor.Edge];
+
+      bool[] hasVisitedArr = new bool[this._chord.Predecessor.Edge];
+      Queue<int> queue = new Queue<int>();
+      
+      queue.Enqueue(this._chord.Predecessor.Edge);
     
-      while (!hasVisited[this._chord.Predecessor.Edge])
+      while (!hasVisitedArr[this._chord.Predecessor.Edge])
       {
         foreach (int i in graph[this._chord.Distance.Edge])
         {
-          hasVisited[i] = true;
+          hasVisitedArr[i] = true;
           this._chord.Edge = i;
     
-          return _breadthFirstSearch(graph);
+          return _breadthFirstSearch(graph, id);
         }
       }
     
-      return _breadthFirstSearch(graph);
+      return _breadthFirstSearch(graph, id);
     }
   }
 

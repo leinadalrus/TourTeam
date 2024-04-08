@@ -1,23 +1,15 @@
 <script setup lang="ts">
-import axios from "axios"
-
 import type ShipsBoats from "../ships/ShipsBoats.vue"
-
-const respVal = await axios.get<Array<typeof ShipsBoats>>("/api/ships")
-const responseData = respVal.data
 // to-do:
 // defineProps<>() // code ...
 </script>
 
 <template>
   <section :class="styles.CardSection">
-    <h1>{{ responseData.keys }}</h1>
-    <h2>{{ responseData.length }}</h2>
+    <article :class="styles.CardArticle">
+      <slot :class="styles.CardDescriptor"></slot>
+    </article>
   </section>
-  <article :class="styles.CardArticle">
-    <div :class="styles.CardDescriptor">{{ responseData.entries }}</div>
-    <span :class="styles.CardFlavor">{{ responseData.values }}</span>
-  </article>
 </template>
 
 <style scoped module="styles" lang="scss">

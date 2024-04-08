@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineComponent, ref, watch } from "vue"
+import { defineComponent, ref } from "vue"
 
 type CustomerAccount = {
   uuid: number
@@ -29,21 +29,21 @@ function fetchLoginData(): void {
 
 function handleLogin(type: string, username: string): LoginData | undefined {
   try {
-    type === "LOGIN" ? fetchLoginData() : false
-    if (type !== "LOGIN") {
+    type === "GetLogin" ? fetchLoginData() : false
+    if (type !== "UpdateLogin") {
       return {
         bound: false,
         post: "400"
       }
     } else if (username !== document.getElementById("email")?.innerHTML) {
-      setAuthority.value = "LOGIN"
+      setAuthority.value = "UpdateLogin"
       return {
         bound: true,
         post: "200"
       }
     }
   } catch (error) {
-    console.log("Error ;= %s", error)
+    console.log("Error := %s", error)
     authored = setAuthority.value
     return {
       bound: false,
@@ -127,6 +127,7 @@ defineComponent({
     </section>
   </article>
 </template>
+
 <style scoped module="styles" lang="scss">
 .LoginConsole {
   transform: translate(-1rem, 0);

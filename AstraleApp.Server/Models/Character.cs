@@ -4,34 +4,20 @@ namespace AstraleApp.Server.Models
 {
   public class Character
   {
-    private readonly int id;
-    private readonly string nickname;
-    private readonly Trait traits;
+    private readonly string _nickname;
+    private readonly Trait _traits;
 
-    public Character(string newName, Trait traitInstance)
+    public Character(string newNickname, Trait traitInstance)
     {
-      this.nickname = newName;
-      this.traits = traitInstance;
+      _nickname = newNickname;
+      _traits = traitInstance;
     }
 
-    public Character(int id)
-    {
-      this.id = id;
-    }
-
-    public int GetId()
-    {
-      return this.id;
-    }
-
-    public String GetName()
-    {
-      return this.nickname;
-    }
-
-    public Trait GetTraits()
-    {
-      return this.traits;
-    }
+    public int ID { get; set; }
+    public String FamilyName { get; set; }
+    public String GivenName { get; set; }
+    public String Nickname { get { return _nickname; } }
+    // -> Username : String
+    public Trait Traits { get { return _traits; } }
   }
 }
