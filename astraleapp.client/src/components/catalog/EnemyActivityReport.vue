@@ -1,10 +1,20 @@
-<script lang="ts">
-import ShipsBoats from "../ships/ShipsBoats.vue";
-import LogList from "./LogList.vue"
+<script setup lang="ts">
+import { defineProps, ref } from "vue"
+
+defineProps(["title", "description"])
+
+const _activityReports = ref([
+  { id: 0, title: "Prototype: IJN-I400", description: "Submersible Vessel Aircraft Carrier." }
+])
 </script>
 
 <template>
-  <LogList></LogList>
+  <EnemyActivityReport
+    v-for="report in _activityReports"
+    :key="_activityReports.id"
+    :title="_activityReports.title"
+    :description="_activityReports.description"
+  />
 </template>
 
 <style scoped module="styles" lang="scss"></style>

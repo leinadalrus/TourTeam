@@ -1,9 +1,8 @@
-<script lang="ts">
-import LogList from "./LogList.vue"
+<script setup lang="ts">
 </script>
 
 <template>
-    <LogList></LogList>
+  <VictoryAndObjectives />
 </template>
 
 <style scoped module="styles" lang="scss"></style>

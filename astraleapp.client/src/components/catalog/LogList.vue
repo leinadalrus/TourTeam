@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type ShipsBoats from "../ships/ShipsBoats.vue"
 // to-do:
-// defineProps<>() // code ...
+// defineComponent<>() --- code ...
 </script>
 
 <template>
