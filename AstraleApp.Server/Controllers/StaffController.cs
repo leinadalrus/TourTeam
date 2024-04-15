@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AstraleApp.Server.Controllers
 {
+  [ApiController]
+  [Route("api/[controller]")]
   public class StaffController : Controller
   {
     public StaffController() { }

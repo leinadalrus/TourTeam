@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { ref } from "vue"
-import { defineStore } from "pinia"
-import EnemyActivityReport from "./EnemyActivityReport.vue"
-import useShipsBoatsStore from "../ships/useShipsBoatsStore.vue";
 </script>
 
 <template>
   <OrderOfBattle>
-    <EnemyActivityReport />
+    <slot></slot>
   </OrderOfBattle>
 </template>
 

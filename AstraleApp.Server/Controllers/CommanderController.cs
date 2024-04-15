@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AstraleApp.Server.Controllers
 {
+
+  [ApiController]
+  [Route("api/[controller]")]
   public class CommanderController : Controller
   {
     private readonly Commander _commander;
