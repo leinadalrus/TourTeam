@@ -1,10 +1,10 @@
-﻿using AstraleApp.Server.Models;
+﻿using AstraleApp.Server.Models.Graphs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AstraleApp.Server.Controllers
 {
-  [ApiController]
+    [ApiController]
   [Route("api/[controller]")]
   public class HarborController : Controller
   {
