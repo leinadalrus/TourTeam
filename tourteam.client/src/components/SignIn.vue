@@ -7,7 +7,7 @@ const password = ref("password")
 let authenticated = ref(false)
 let sophisticated = ref("\0")
 
-watch(password, async (authentication) => {
+watch([username, password], async (authentication) => {
   if (authentication) authenticated.value = true
 
   const response = await fetch("https://tourteam.o/api")
@@ -24,9 +24,11 @@ watch(password, async (authentication) => {
   <article class="login-console">
     <section class="login-console-segment">
       <form class="login-console-form">
-        <input type="email" name="email" placeholder="Username?" value="username" class="login-email-field"
+        <label for="username">Username | e-Mail:</label>
+        <input type="email" name="email" placeholder="Username | e-Mail?" value="username" class="login-email-field"
           v-model.trim="username" />
 
+        <label for="password">Password:</label>
         <input type="password" name="password" placeholder="Password...?" value="password" class="login-password-field"
           v-model.trim="password" />
 
