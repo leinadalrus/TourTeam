@@ -33,12 +33,6 @@ watch([username, password], async (authentication) => {
           v-model.trim="password" />
 
         <div class="login-console-reset">
-          <button>
-            <i>Forgot password</i>
-          </button>
-        </div>
-
-        <div class="login-console-reset">
           <button type="reset">
             <i>Remember me</i>
           </button>
