@@ -4,22 +4,26 @@ namespace TourTeam.Server.Models
 {
   public class TradingCard : ICardPlatform
   {
+    private string _title;
+    private string _description;
+    private string _flavour;
+
     public string Title
     {
-      get => throw new NotImplementedException();
-      set => throw new NotImplementedException();
+      get => _title;
+      set => _title = value;
     }
 
     public string Description
     {
-      get => throw new NotImplementedException();
-      set => throw new NotImplementedException();
+      get => _description;
+      set => _description = value;
     }
 
     public string? Flavour
     {
-      get => throw new NotImplementedException();
-      set => throw new NotImplementedException();
+      get;
+      set;
     }
 
     public ICombatFacade CombatStats
