@@ -29,28 +29,22 @@ watch([tradingCard, starScore], () => { })
 </script>
 
 <template>
-  <div class="card-banner">{{ tradingCard.title }}</div>
-  <span>{{ starScore }}</span>
-  <section class="card-container">
-    <img :src="tradingCard.image" :alt="tradingCard.flavour" />
-    <article class="card-content">
-      <p>{{ tradingCard.description }}</p>
-      <i>{{ tradingCard.flavour }}</i>
-    </article>
-  </section>
+  <article class="card-container">
+    <div>
+      <slot
+          name="card-icon"
+          class="card-image"
+      ></slot>
+    </div>
+    <slot name="card-heading"></slot>
+    <span>{{ starScore }}</span>
+    <section class="card-details">
+      <slot name="card-content"></slot>
+    </section>
+  </article>
 </template>
 
 <style scoped lang="scss">
-.card-banner {
-  text-orientation: sideways;
-  writing-mode: vertical-rl;
-  word-break: break-word;
-  max-height: 32vh;
-}
-
-.card-background {
-}
-
 .card-container {
   display: flex;
   overflow: scroll;
@@ -79,6 +73,16 @@ watch([tradingCard, starScore], () => { })
   right: 17.5rem;
 }
 
-.card-setting {
+.card-details {
+}
+
+.card-heading {
+  text-orientation: sideways;
+  writing-mode: vertical-rl;
+  word-break: break-word;
+  max-height: 32vh;
+}
+
+.card-image {
 }
 </style>
