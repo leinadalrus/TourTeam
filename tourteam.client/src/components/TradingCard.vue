@@ -9,14 +9,21 @@ enum StarScores {
   FiveStars = 5
 }
 
-interface CardPlatform {
+interface ICardPlatform {
   title: string
   description: string
   flavour: string
   image: string
 }
 
-const tradingCard = ref<CardPlatform>({
+type TCardPlatform = ICardPlatform
+
+interface ITablePlatform {
+  loading: boolean,
+  post: null | TCardPlatform
+}
+
+const tradingCard = ref<ICardPlatform>({
   title: "/title",
   description: "/description",
   flavour: "/flavour",
@@ -25,7 +32,16 @@ const tradingCard = ref<CardPlatform>({
 
 const starScore = ref<StarScores>()
 
-watch([tradingCard, starScore], () => { })
+const retrieveDatum = (table: ITablePlatform) => {
+  fetch("trading-card")
+    .then(read => read.json())
+    .then(json => {
+      table.loading = false
+      table.post = json as TCardPlatform
+    })
+}
+
+watch([tradingCard, starScore], (tradingCard) => { tradingCard })
 </script>
 
 <template>
