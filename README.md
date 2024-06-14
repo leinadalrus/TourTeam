@@ -1,6 +1,6 @@
 ### Feature Overview
 
-_Profile Progression and Market Tracking App for Conchord._
+_Profile Progression and Tracking App for Conchord._
 
 The feature will enable users to review their application progress, view Conchord's market landscape, and access related services directly from their mobile devices. This initiative aims to enhance transparency, accessibility, and user engagement.
 
