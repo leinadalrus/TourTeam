@@ -9,5 +9,11 @@ namespace TourTeam.Server.Models
     {
         public Customer Customer { get; set; }
         public String Passphrase { get; set; }
+
+        public Login(Customer customer, String passphrase)
+        {
+            Customer = customer;
+            Passphrase = passphrase;
+        }
     }
 }
