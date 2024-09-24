@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 @TourTeam.Server_HostAddress = http://localhost:5288
+=======
+@TourTeam.Server_HostAddress = http://localhost:5140
+>>>>>>> Stashed changes
 
 GET {{TourTeam.Server_HostAddress}}/weatherforecast/
 Accept: application/json

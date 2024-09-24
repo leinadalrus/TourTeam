@@ -1,6 +1,11 @@
 {
+<<<<<<< Updated upstream
   "recommendations": [
     "Vue.volar",
     "dbaeumer.vscode-eslint"
   ]
+=======
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
+  "recommendations": ["angular.ng-template"]
+>>>>>>> Stashed changes
 }

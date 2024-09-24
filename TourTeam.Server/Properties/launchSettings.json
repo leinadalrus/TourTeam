@@ -4,8 +4,13 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
+<<<<<<< Updated upstream
       "applicationUrl": "http://localhost:34908",
       "sslPort": 44318
+=======
+      "applicationUrl": "http://localhost:60612",
+      "sslPort": 44343
+>>>>>>> Stashed changes
     }
   },
   "profiles": {
@@ -14,7 +19,11 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
+<<<<<<< Updated upstream
       "applicationUrl": "http://localhost:5288",
+=======
+      "applicationUrl": "http://localhost:5140",
+>>>>>>> Stashed changes
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
@@ -25,7 +34,11 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
+<<<<<<< Updated upstream
       "applicationUrl": "https://localhost:7263;http://localhost:5288",
+=======
+      "applicationUrl": "https://localhost:7160;http://localhost:5140",
+>>>>>>> Stashed changes
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
