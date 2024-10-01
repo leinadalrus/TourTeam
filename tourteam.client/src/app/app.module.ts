@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './components/article/article.component';
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
+import { VisitorLayoutComponent } from './layouts/visitor-layout/visitor-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleComponent,
-    NavmenuComponent
+    NavmenuComponent,
+    VisitorLayoutComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
