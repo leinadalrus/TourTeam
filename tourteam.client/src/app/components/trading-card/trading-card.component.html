@@ -1,0 +1,6 @@
+@for (article of articles; track article.id) {
+<app-article class="max-auto max-w-md">
+  <p ngProjectAs="article-title">{{ article.title }}</p>
+  <i ngProjectAs="article-content">{{ article.content }}</i>
+</app-article>
+}
