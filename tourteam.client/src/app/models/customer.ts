@@ -4,19 +4,15 @@ interface ICustomer {
 }
 
 class Permittor {
-  owner: boolean = false // NOTE(Visitor): Visitor is the default rendering perspective.
+  producer: boolean = false // NOTE(Visitor): Visitor is the default rendering perspective.
 
-  public getOwner(): boolean {
-    return this.owner
+  public GetMemberRole(): boolean {
+    return this.producer
   }
 }
 
 export class Customer {
-  public endUsers: ICustomer[] = []
+  public EndUsers: ICustomer[] = []
 
-  public userPermission: Permittor = new Permittor
-
-  public isAdmitted(): boolean {
-    return true
-  }
+  public UserPermission: Permittor = new Permittor
 }

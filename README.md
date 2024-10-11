@@ -139,108 +139,7 @@ classDiagram
   }
 ```
 
-# Algorithms
-## In tandem with another
-
-1. Arrays-&-Hashing
-      - Contains Duplicate
-      - Product of Array except Self
-      - Encode and Decode Strings
-2. Two Pointers
-    - Two Sum II Input Array Is Sorted
-    - Container With Most Water
-    - Trapping Rain Water
-3. Stack
-    - Valid Parentheses
-    - Generate Parentheses
-    - Min Stack
-    - Evaluate Reverse Polish Notation
-    - Largest Rectangle In Histogram
-4. Binary Search
-    - Search a 2D Matrix
-    - Find Minimum In Rotated Sorted Array
-    - Search In Rotated Sorted Array
-    - Time Based Key Value Store
-5. Sliding Window
-    - Longest Substring Without Repeating Characters
-    - Longest Repeating Character Replacement
-    - Minimum Window Substring
-    - Sliding Window Maximum
-6. Linked List
-    - Merge K Sorted Lists
-    - Reverse Nodes in K Group
-    - LRU Cache
-7. Trees
-    - Invert Binary Tree
-    - Maximum Depth Binary Tree
-    - Subtree of Another Tree
-    - Construct Binary Tree From Pre-order and In-order Traversal
-    - Serialise and Deserialize Binary Tree
-8. Backtracking
-    - Word Search
-    - Subsets
-    - Permutations
-9. Graphs
-    - Number of Islands
-    - Clone Graph
-    - Max Area of Island
-    - Surrounded Regions
-    - Walls and Gates
-    - Number of Connected Components in an Undirected Graph
-    - Redundant Connection
-10. Advanced Graphs
-    - Network Delay Time
-    - Reconstruct Itinerary
-    - Swim in Rising Water
-
-_Algorithm example: Breadth First Search_
-
-```CS Tilemap.cs
-public int MaxAreaOfTilemap(int[][] grid)
-{
-  int m = grid.Length,
-      n = grid[0].Length;
-  // outside values which should be in a `Queue<int>()` value;
-
-  if (1 <= m && n <= m)
-      return n;
-  
-  return m;
-}
-
-private int _breadthFirstSearch(int[][] grid)
-{
-  Chord chord = new Chord();
-  chord._predecessor = new Chord();
-  chord._distance = chord._predecessor;
-      
-  bool[] hasVisited = new bool[chord._edge];
-
-  while (!hasVisited[chord._edge])
-  {
-      for (int i = 0; i < grid.Length; ++i)
-      {
-          for (int j = 0; j < grid[0].Length; ++j)
-          {
-              hasVisited[j] = true;
-              chord._edge = j;
-
-              return _breadthFirstSearch(grid);
-          }
-      }
-  }
-
-  return _breadthFirstSearch(grid);
-}
-```
-
-#### Back-end mechanics: CSV and G-Zip
-
-- Combine CSV and G-Zip to have asynchronous streaming between compressed files with a backpressure handling implementation
-    - Employ automation software for this implementation
-    - These are generally requested with JSON API data and other SSL/TLS support willing to server request(s) using the "HTTPS" protocol
-
-# Milestones (Projected)
+# Milestones
 
 - HTTP Request and Response:
     - Reading and writing JSON files
@@ -279,3 +178,18 @@ So in a sense, a data-driven Inventory Management System must be influenced by t
 
 - Database configuration and interfacing with an ORM (a-la LINQ)
 
+# TODO
+#TODO
+
+1. Create, read, update, destroy forms
+    1. Pipeline, via checkpoints publication form progress
+    2. Have a means to undo workload
+2. Box align format cards for homepage & dashboard
+3. Add-to-cart system into self-checkout modal-dialog
+4. View and manage recent transactions
+
+#### Back-end mechanics: CSV and G-Zip
+
+- Combine CSV and G-Zip to have asynchronous streaming between compressed files with a backpressure handling implementation
+    - Employ automation software for this implementation
+    - These are generally requested with JSON API data and other SSL/TLS support willing to server request(s) using the "HTTPS" protocol

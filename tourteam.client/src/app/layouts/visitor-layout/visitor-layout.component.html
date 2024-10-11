@@ -4,10 +4,17 @@
   <app-navmenu class="navbar-container navbar-wrapper">
 
     <nav ngProjectAs="manila-folder-nav-items">
-      <a href="../../app.component.html" class="font-medium px-10 text-[#04030A] hover:text-[#F7F3EA] hover:bg-[#04030A]">Your Hub</a>
-      <a href="../../app.component.html" class="font-medium px-10 text-[#04030A] hover:text-[#F7F3EA] hover:bg-[#04030A]">Meet the Team</a>
-      <a href="../../app.component.html" class="font-medium px-10 text-[#04030A] hover:text-[#F7F3EA] hover:bg-[#04030A]">Contact Us</a>
-      <a href="../../app.component.html" class="font-medium px-10 text-[#04030A] hover:text-[#F7F3EA] hover:bg-[#04030A]">Learn More?</a>
+      <a href="/src/app/app.component.html" class="font-medium px-10 text-[#04030A] hover:text-[#F7F3EA] hover:bg-[#04030A]">Your Hub</a>
+      <a href="/src/app/app.component.html" class="font-medium px-10 text-[#04030A] hover:text-[#F7F3EA] hover:bg-[#04030A]">Meet the Team</a>
+      <a href="/src/app/app.component.html" class="font-medium px-10 text-[#04030A] hover:text-[#F7F3EA] hover:bg-[#04030A]">Contact Us</a>
+      <a href="/src/app/app.component.html" class="font-medium px-10 text-[#04030A] hover:text-[#F7F3EA] hover:bg-[#04030A]">Learn More?</a>
+
+      @if (customerQuery.UserPermission.GetMemberRole() == true)
+      {
+      <button onclick="location.href='/src/app/layouts/publisher-layout/produce-layout.html'">Publish</button>
+      }
+
+      <button onclick="location.href='/src/app/app.component.html'">Sign Off</button>
     </nav>
 
   </app-navmenu>

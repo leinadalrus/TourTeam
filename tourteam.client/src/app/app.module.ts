@@ -8,6 +8,8 @@ import { ArticleComponent } from './components/article/article.component';
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
 import { VisitorLayoutComponent } from './layouts/visitor-layout/visitor-layout.component';
 import { TradingCardComponent } from './components/trading-card/trading-card.component';
+import { ProduceFormComponent } from './components/produce-form/produce-form.component';
+import { PublisherLayoutComponent } from './layouts/publisher-layout/publisher-layout.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { TradingCardComponent } from './components/trading-card/trading-card.com
     ArticleComponent,
     NavmenuComponent,
     VisitorLayoutComponent,
-    TradingCardComponent
+    TradingCardComponent,
+    ProduceFormComponent,
+    PublisherLayoutComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
